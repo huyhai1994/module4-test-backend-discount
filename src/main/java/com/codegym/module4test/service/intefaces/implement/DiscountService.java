@@ -43,6 +43,6 @@ public class DiscountService implements IDiscountService {
 
     @Override
     public Iterable<Discount> getDiscountsByDiscountMoneyGreaterThanEqual(BigDecimal discountMoney) {
-        return discountRepository.getDiscountsByDiscountMoney(discountMoney);
+        return discountRepository.findDiscountsByDiscountMoney(discountMoney);
     }
 }

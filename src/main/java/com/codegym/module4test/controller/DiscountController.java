@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("api/Discounts")
+@RequestMapping("api/discounts")
 @RequiredArgsConstructor
 public class DiscountController {
 
@@ -34,7 +34,6 @@ public class DiscountController {
     @PostMapping
     ResponseEntity<Discount> addDiscount(@RequestBody Discount Discount) {
         discountService.save(Discount);
-        System.out.println("hello");
         return new ResponseEntity<>(Discount, HttpStatus.CREATED);
     }
 

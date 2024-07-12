@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,6 +62,12 @@ public class DiscountController {
             return new ResponseEntity<>(oldDiscount.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/find/{discountMoney}")
+    ResponseEntity<Iterable<Discount>> getDiscountsByDiscountMoneyGreaterThanEqual(@PathVariable BigDecimal discountMoney) {
+        Iterable<Discount> discounts = discountService.getDiscountsByDiscountMoneyGreaterThanEqual(discountMoney);
+        return new ResponseEntity<>(discounts, HttpStatus.OK);
     }
 
 }

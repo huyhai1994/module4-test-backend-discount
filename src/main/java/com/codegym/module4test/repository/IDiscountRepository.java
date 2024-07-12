@@ -8,5 +8,5 @@ import java.math.BigDecimal;
 
 public interface IDiscountRepository extends JpaRepository<Discount, Long> {
     @Query(value = "SELECT * FROM discounts WHERE discount_money >= :discountmoney", nativeQuery = true)
-    Iterable<Discount> getDiscountsByDiscountMoneyGreaterThanEqual(BigDecimal discountMoney);
+    Iterable<Discount> getDiscountsByDiscountMoney(BigDecimal discountMoney);
 }

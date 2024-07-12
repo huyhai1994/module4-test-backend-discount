@@ -7,6 +7,7 @@ import com.codegym.module4test.service.intefaces.IDiscountService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 @Service
@@ -38,5 +39,10 @@ public class DiscountService implements IDiscountService {
     @Override
     public Iterable<Discount> findAll() {
         return discountRepository.findAll();
+    }
+
+    @Override
+    public Iterable<Discount> getDiscountsByDiscountMoneyGreaterThanEqual(BigDecimal discountMoney) {
+        return discountRepository.getDiscountsByDiscountMoney(discountMoney);
     }
 }

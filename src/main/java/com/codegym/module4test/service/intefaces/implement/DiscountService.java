@@ -24,7 +24,7 @@ public class DiscountService implements IDiscountService {
         if (discountRepository.findById(id).isPresent())
             discountRepository.deleteById(id);
         else
-            throw new OurException("Product not found");
+            throw new OurException("Discount not found");
     }
 
     @Override
@@ -32,7 +32,7 @@ public class DiscountService implements IDiscountService {
         if (discountRepository.findById(id).isPresent())
             return discountRepository.findById(id);
         else
-            throw new OurException("Product not found");
+            throw new OurException("Discount not found");
     }
 
     @Override
